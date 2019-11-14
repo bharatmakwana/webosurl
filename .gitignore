@@ -4,6 +4,7 @@
 /public/js
 /public/vendor
 /public/argon
+/public/images
 /public/css
 /storage/*.key
 /vendor
@@ -50,4 +51,16 @@ _ide_helper.php
 _ide_helper_models.php
 data/
 coverage.xml
+/node_modules
+/public/hot
+/storage/*.key
+/vendor
+.env
+.env.backup
+.phpunit.result.cache
+Homestead.json
+Homestead.yaml
+npm-debug.log
+yarn-error.log
+storage/*
 
