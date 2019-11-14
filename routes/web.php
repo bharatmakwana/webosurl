@@ -43,6 +43,11 @@ Route::group(['prefix' => 'url'], function () {
     Route::get('referers', 'AnalyticsController@showReferrersList')->name('url.referers')->middleware('admin');
 });
 
+Route::group(['prefix' => 'customer'], function () {
+    Route::get('list', 'CustomerController@showCustomersList')->middleware('admin')->name('customer.list');
+    Route::get('list-load', 'CustomerController@loadCustomersList')->middleware('admin')->name('customer.list-load');
+});
+
 // We use "show" in place of "edit", because the "real" show is /{url}
 Route::resource('url', 'UrlController')->except(['edit', 'index'])->middleware(['verifycheck', 'honeypot']);
 

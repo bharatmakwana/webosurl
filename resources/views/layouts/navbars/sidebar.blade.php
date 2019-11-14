@@ -97,6 +97,11 @@
 
             <ul class="navbar-nav">
                 <li class="nav-item">
+                    <a class="nav-link" href="{{ route('customer.list') }}">
+                        <i class="fa fa-stream text-green"></i> {{ __('customer.list') }}
+                    </a>
+                </li>
+                <li class="nav-item">
                     <a class="nav-link" href="{{ route('url.list') }}">
                         <i class="fa fa-stream text-green"></i> {{ __('url.list') }}
                     </a>
