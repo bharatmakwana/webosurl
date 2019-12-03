@@ -9,10 +9,13 @@
  */
 
 return [
-  'list' => 'Customers list',
+  'list' => 'Customers Lists',
   'name'  => 'Name',
   'email' => 'Email ID',
   'id' => 'ID',
   'mobile' => 'Mobile No',
   'city' => 'City',
+  'action' => 'Action',
+  'generate' => 'Generate',
+  'genShortUrl' => 'Generate Short URL'
 ];

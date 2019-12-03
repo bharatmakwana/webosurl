@@ -43,10 +43,11 @@ class UrlService
             return $short_url;
         }
 
+        
         // Iterate until a not-already-created short url is generated
-        do {
+        //do { //commented code taking too much time
             $short_url = $this->generateShortUrl();
-        } while ($this->customUrlExisting($short_url));
+        //} while ($this->customUrlExisting($short_url)); //commented code taking too much time
 
         Url::createShortUrl($long_url, $short_url, $privateUrl, $hideUrlStats);
 

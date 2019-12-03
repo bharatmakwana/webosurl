@@ -71,7 +71,7 @@ class UrlController extends Controller
                 ->with('existing', $existing)
                 ->with('siteUrl', $siteUrl);
         }
-
+        
         $short = $this->url->shortenUrl($data['url'], $data['customUrl'], $data['privateUrl'], $data['hideUrlStats']);
 
         return Redirect::route('home')

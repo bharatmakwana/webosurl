@@ -38,7 +38,7 @@ class CreateSettingsTable extends Migration
         Schema::create($this->tablename, function (Blueprint $table) {
             $table->increments('id');
             $table->string($this->keyColumn)->index();
-            $table->text($this->valueColumn);
+            $table->text($this->valueColumn)->nullable();
         });
     }
 

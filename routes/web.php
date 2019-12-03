@@ -46,6 +46,7 @@ Route::group(['prefix' => 'url'], function () {
 Route::group(['prefix' => 'customer'], function () {
     Route::get('list', 'CustomerController@showCustomersList')->middleware('admin')->name('customer.list');
     Route::get('list-load', 'CustomerController@loadCustomersList')->middleware('admin')->name('customer.list-load');
+    Route::get('/generateUrl/{id}', 'CustomerController@generateUrlFromCustomer');
 });
 
 // We use "show" in place of "edit", because the "real" show is /{url}
