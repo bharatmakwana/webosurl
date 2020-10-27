@@ -105,7 +105,7 @@ class Url extends Model
 
         $user_id = Auth::user()->id;
 
-        return $urlsList = self::where('user_id', $user_id)->paginate(30);
+        return $urlsList = self::where('user_id', $user_id)->orderbyDesc('id')->paginate(30);
     }
 
     /**

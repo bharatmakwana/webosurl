@@ -81,8 +81,8 @@ class CustomerController extends Controller
         $custMobile = $customerData['mobile_number'];
 
         $data['hideUrlStats'] = 0;
-        $data['url'] = 'http://demonew.shaze.in/?utm_source=newsletter&utm_medium=email&utm_campaign=spring_sale&'.
-                             'utm_term=email%3D'.$custEmail.'%26mobile%3D'.$custMobile.'%26name='.$custName;
+        $data['url'] = str_replace(' ','%20','https://edupeer.com/?utm_source=smsprovider&utm_medium=sms&utm_campaign=winback&'.
+                             'utm_term=email%3D'.$custEmail.'%26mobile%3D'.$custMobile.'%26name='.$custName);
                              
         $data['privateUrl'] = 0;
         $data['customUrl'] = null;

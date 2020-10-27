@@ -38,6 +38,7 @@
                                 <table class="table align-items-center table-flush">
                                     <thead class="thead-light">
                                     <tr>
+                                        <th scope="col">sendSMS</th>
                                         <th scope="col">{{ __('url.short') }}</th>
                                         <th scope="col">{{ __('url.long') }}</th>
                                         <th scope="col"></th>
@@ -46,6 +47,9 @@
                                     <tbody>
                                     @foreach ($urls as $url)
                                         <tr>
+                                            <td>
+                                                <input type="button" class="btn btn-sm btn-danger" onclick="sendSMS({{$url->id}});" value="Send SMS">
+                                            </td>
                                             <td>
                                                 <a href="/{{$url->short_url}}">{{$url->short_url}}</a>
                                             </td>
@@ -105,4 +109,18 @@
 @endsection
 @push('js')
     <script src="/js/app.js"></script>
+    <script type="text/javascript">
+        function sendSMS(id) {
+            var xmlhttp = new XMLHttpRequest();
+                xmlhttp.onreadystatechange = function() {
+                    if (this.readyState == 4 && this.status == 200) {
+                        //document.getElementById("txtHint").innerHTML = this.responseText;
+                        console.log(this.responseText);
+                        alert(this.responseText);
+                    }
+                };
+                xmlhttp.open("GET", "/sendSMS/" + id, true);
+                xmlhttp.send();
+        }
+    </script>
 @endpush

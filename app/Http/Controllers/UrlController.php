@@ -221,4 +221,33 @@ class UrlController extends Controller
 
         return view('url.public')->with('urls', Url::getLatestPublicUrls());
     }
+
+    public function sendSMS($id) {
+        $data = Url::where('id', $id)->get()->toArray();
+        $url = $data[0]['long_url'];
+        $query_str = parse_url($url, PHP_URL_QUERY);
+        parse_str($query_str, $query_params);
+        //print_r($query_params);
+        $fin_data = explode('&',$query_params['utm_term']);
+        $custname = explode('=',$fin_data[2]);
+        $custNumber = explode('=',$fin_data[1]);
+        // Account details
+        $apiKey = urlencode('9EB+kbz5tEg-BbeRg9TDGxjSDQgurjJbOn9Tc9bFzG');
+        // Message details
+        $numbers = array($custNumber[1]);
+        $sender = urlencode('TXTLCL');
+        $message = rawurlencode('Hi '.ucwords($custname[1]).', Come back now online and see new offers. '.env('APP_URL').'/'.$data[0]['short_url']);
+        $numbers = implode(',', $numbers);
+        // Prepare data for POST request
+        $data = array('apikey' => $apiKey, 'numbers' => $numbers, "sender" => $sender, "message" => $message);
+        // Send the POST request with cURL
+        $ch = curl_init('https://api.textlocal.in/send/');
+        curl_setopt($ch, CURLOPT_POST, true);
+        curl_setopt($ch, CURLOPT_POSTFIELDS, $data);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        $response = curl_exec($ch);
+        curl_close($ch);
+        // Process your response here
+        echo "Message Send Successfully";
+    }
 }

@@ -3,7 +3,7 @@
     <div class="header bg-gradient-primary mb-3 pt-6 	d-none d-lg-block d-md-block pt-md-7"></div>
     <div class="container-fluid">
         <div class="header-body">
-        <div class="row">
+            <!--<div class="row">
                 <div class="container-fluid">
                     <div class="col">
                         <div class="card shadow">
@@ -93,7 +93,7 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> -->
             <div class="row">
                 <div class="container-fluid">
                     <div class="col">
